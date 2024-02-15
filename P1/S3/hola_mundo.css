@@ -1,0 +1,19 @@
+/* Practicando CSS */
+body{
+    padding: 5px;
+    margin: 10px;
+    /*border: solid; */
+    border-color: blue;
+    background-color: #F5B100;
+    color: #F5B100;
+
+}
+p{
+    color:#F56C00;
+    margin: 20px;
+    border: solid; 
+    border-color: blue;
+}
+h1{
+    color: #F51400;
+}
