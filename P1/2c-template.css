@@ -77,9 +77,11 @@ h1 {
   margin-bottom: 0px;
 
 }
+
 .video{
   text-align: center;
 }
+
 /* Clear floats despues de las columnas para eliminar la superposición */
 .fila:after {
 content: "";
