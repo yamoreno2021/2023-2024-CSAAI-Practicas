@@ -26,7 +26,6 @@ btn1.onclick = () => {
   }
 }
 
-}
 
 //-- pulsación de botón 2
 btn2.onclick = () => {
