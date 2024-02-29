@@ -1,6 +1,11 @@
 /* https://www.w3schools.com/howto/howto_css_two_columns.asp */
 /* https://developer.mozilla.org/es/docs/Web/CSS/box-sizing */
 /* Así definimos el comportamiento de caja para todos los elementos */
+body {
+  background: no-repeat;
+  background-image: url(Fondo3.jpeg);
+  background-size: cover;
+}
 * {
     box-sizing: border-box;
   }
@@ -28,11 +33,11 @@ clear: both;
 }
 
 #c1 {
-    background-color:#aaa;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #c2 {
-    background-color:#bbb;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
