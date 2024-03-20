@@ -43,6 +43,7 @@ function success(number){
         gui.first.innerHTML = secretkey[0]
         gui.first.style.color = "rgb(26, 240, 26)"
     }
+
     if (secretkey[1] == number){
         gui.second.innerHTML = secretkey[1]
         gui.second.style.color = "rgb(26, 240, 26)"  
@@ -57,8 +58,9 @@ function success(number){
         gui.fourth.innerHTML = secretkey[3]
         gui.fourth.style.color = "rgb(26, 240, 26)"    
     }
-    else{
-        console.log("Fallo")
+    if (gui.first.innerHTML != "*" && gui.second.innerHTML != "*" && gui.third.innerHTML != "*" && gui.fourth.innerHTML != "*"){
+        console.log("Has Ganado")
+        crono.stop();
     }
 }
 
@@ -88,11 +90,21 @@ gui.reset.onclick = () => {
     console.log("Reset!");
     crono.reset();
 
+    gui.first.innerHTML = "*"
+    gui.first.style.color = "red"
+    gui.second.innerHTML = "*"
+    gui.second.style.color = "red"
+    gui.third.innerHTML = "*"
+    gui.third.style.color = "red"
+    gui.fourth.innerHTML = "*"
+    gui.fourth.style.color = "red"
+
     //-- Generamos números secretos y los almacenamos en un array
     for (let i = 0; i < 4; i++) {
     let rnum = getRandomInt(9);
-    secretkey.push(rnum.toString());
-    }   
+    secretkey[i] = rnum;
+    } 
+
 
 //-- Mostramos el contenido del array de números secretos en la consola
         for (let j = 0; j < secretkey.length; j++) {
