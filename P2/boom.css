@@ -1,5 +1,8 @@
 body {
     background-color: black;
+    background-image: url(explosion.jpg);
+    background-size: cover;
+    background-position-y: top ;
 }
 
 .parent {
@@ -48,6 +51,7 @@ body {
     border-width: 2px;
     padding : 5px;
     color : rgb(26, 240, 26);
+    
 }
 
 @media (hover: none) and (pointer: coarse) and (orientation: portrait) {
