@@ -3,7 +3,8 @@ body {
     background-image: url(TNT.png);
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: -450px ;
+    background-position-y: -350px ;
+    background-size:;
 }
 
 #container {
@@ -140,7 +141,7 @@ body {
     height: auto;
     float: left;
     font-family: monospace;
-    border-width: 0.5;
+    border-width: 3px;
     font-weight: bold;
     border-color: rgb(26, 240, 26);;
     border-style: solid;
@@ -150,7 +151,7 @@ body {
     height: 20%;
     float: left;
     font-family: monospace;
-    border-width: 0.5;
+    border-width: 5px;
     font-weight: bold;
 }
 
@@ -182,8 +183,6 @@ body {
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 500px) {
-
-   
     #calculator {
         width: 90%; /* Ocupa el ancho completo */
         margin: 10px auto; /* Centra la calculadora */
@@ -204,6 +203,7 @@ body {
     #output {
         width: 90%;
         height: auto; /* Reduce la altura del output */
+
     }
 
     #keyboard {
@@ -212,7 +212,8 @@ body {
 
     }
     #crono{
-        font-size: auto;
+        position:relative;
+        left: 20px;
     }
     .code {
         width: 23%; /* Ancho proporcional */

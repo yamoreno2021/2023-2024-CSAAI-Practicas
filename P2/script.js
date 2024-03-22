@@ -18,7 +18,7 @@ const gui = {
     third : document.getElementById("third"),
     fourth : document.getElementById("fourth"),
     body : document.getElementById("cuerpo")
-}
+};
 
 //-- Array que almacena números secretos
 const secretkey = [];
@@ -41,28 +41,29 @@ for (let j = 0; j < secretkey.length; j++) {
 
 function success(number){
     if (secretkey[0] == number){
-        gui.first.innerHTML = secretkey[0]
-        gui.first.style.color = "rgb(26, 240, 26)"
+        gui.first.innerHTML = secretkey[0];
+        gui.first.style.color = "rgb(26, 240, 26)";
     }
 
     if (secretkey[1] == number){
-        gui.second.innerHTML = secretkey[1]
-        gui.second.style.color = "rgb(26, 240, 26)"  
+        gui.second.innerHTML = secretkey[1];
+        gui.second.style.color = "rgb(26, 240, 26)";
       }
 
     if (secretkey[2] == number){
-        gui.third.innerHTML = secretkey[2]
-        gui.third.style.color = "rgb(26, 240, 26)" 
+        gui.third.innerHTML = secretkey[2];
+        gui.third.style.color = "rgb(26, 240, 26)";
     }
 
     if (secretkey[3] == number){
-        gui.fourth.innerHTML = secretkey[3]
-        gui.fourth.style.color = "rgb(26, 240, 26)"    
+        gui.fourth.innerHTML = secretkey[3];
+        gui.fourth.style.color = "rgb(26, 240, 26)";   
     }
     if (gui.first.innerHTML != "*" && gui.second.innerHTML != "*" && gui.third.innerHTML != "*" && gui.fourth.innerHTML != "*"){
-        console.log("Has Ganado")
-        gui.body.style.backgroundImage = "url(explosion.jpg)"
-        gui.body.style.backgroundPosition = "center"
+        console.log("Has Ganado");
+        gui.body.style.backgroundImage = "url(explosion.jpg)";
+        gui.body.style.backgroundPosition = "center";
+        gui.body.style.backgroundSize = "auto";
         crono.stop();
     }
 }
@@ -80,30 +81,31 @@ const crono = new Crono(gui.display);
 gui.start.onclick = () => {
     console.log("Start!!");
     crono.start();
-}
+};
   
 //-- Detener el cronómetro
 gui.stop.onclick = () => {
     console.log("Stop!");
     crono.stop();
-}
+};
 
 //-- Reset del cronómetro
 gui.reset.onclick = () => {
     console.log("Reset!");
     crono.reset();
 
-    gui.first.innerHTML = "*"
-    gui.first.style.color = "red"
-    gui.second.innerHTML = "*"
-    gui.second.style.color = "red"
-    gui.third.innerHTML = "*"
-    gui.third.style.color = "red"
-    gui.fourth.innerHTML = "*"
-    gui.fourth.style.color = "red"
+    gui.first.innerHTML = "*";
+    gui.first.style.color = "red";
+    gui.second.innerHTML = "*";
+    gui.second.style.color = "red";
+    gui.third.innerHTML = "*";
+    gui.third.style.color = "red";
+    gui.fourth.innerHTML = "*";
+    gui.fourth.style.color = "red";
 
-    gui.body.style.backgroundImage = "url(TNT.png)"
-    gui.body.style.backgroundPositionY = "-450px"
+    gui.body.style.backgroundImage = "url(TNT.png)";
+    gui.body.style.backgroundPositionY = "-350px";
+    gui.body.style.backgroundSize = "auto";
 
     //-- Generamos números secretos y los almacenamos en un array
     for (let i = 0; i < 4; i++) {
@@ -116,54 +118,54 @@ gui.reset.onclick = () => {
         for (let j = 0; j < secretkey.length; j++) {
     console.log( j + ' Secret Key ' + secretkey[j]);
 }
-}
+};
 
 gui.zero.onclick = () => {
     crono.start();
     success(0);
-}
+};
 
 gui.one.onclick = () => {
     crono.start();
     success(1);
-}
+};
 
 gui.two.onclick = () => {
     crono.start();
     success(2);
-}
+};
 
 gui.three.onclick = () => {
     crono.start();
     success(3);
-}
+};
 
 gui.four.onclick = () => {
     crono.start();
     success(4);
-}
+};
 
 gui.five.onclick = () => {
     crono.start();
     success(5);
-}
+};
 
 gui.six.onclick = () => {
     crono.start();
     success(6);
-}
+};
 
 gui.seven.onclick = () => {
     crono.start();
     success(7);
-}
+};
 
 gui.eight.onclick = () => {
     crono.start();
     success(8);
-}
+};
 
 gui.nine.onclick = () => {
     crono.start();
     success(9);
-}
+};

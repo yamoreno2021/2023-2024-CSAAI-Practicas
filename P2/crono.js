@@ -31,7 +31,7 @@ class Crono {
         }
 
         //-- Mostrar el valor actual
-        this.display.innerHTML = this.min + ":" + this.seg + ":" + this.cent
+        this.display.innerHTML = this.min + ":" + this.seg + ":" + this.cent;
     }
 
     //-- Arrancar el cronómetro
