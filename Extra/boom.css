@@ -6,6 +6,32 @@ body {
     background-position-y: -450px ;
 }
 
+.parent {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#header {
+    margin : 5px;
+    border-style: solid;
+    border-width: 2px;
+    padding : 5px;
+    font-family: monospace;
+    color : rgb(26, 240, 26);
+    text-align : center;
+} 
+
+#footer {
+    margin : 5px;
+    border-style: solid;
+    border-width: 2px;
+    padding : 5px;
+    font-family: monospace;
+    color : rgb(26, 240, 26);
+    text-align : center;
+
+} 
+
 #container {
     /*width: 1000px; */
     /*! float: center; */
@@ -25,10 +51,9 @@ body {
     border-style: solid;
     border-width: 2px;
     padding : 5px;
-    color : black;
+    color : rgb(26, 240, 26);
     position: relative;
     top: 100px;
-    background-color: #463D2E;
     
 }
 
@@ -49,6 +74,15 @@ body {
     margin-left: 1.4%;
   }
   
+ #header {
+    height: 29.833px;
+  }
+  
+ #header > h1:nth-child(1) {
+    height: 17px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
   
   
  #result {
@@ -63,6 +97,15 @@ body {
     height: 125px;
   }
   
+ #footer {
+    height: 26px;
+  }
+
+ #footer > h2:nth-child(1) {
+    height: 27px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
   
  #container {
     margin-bottom: 15px;
@@ -96,7 +139,6 @@ body {
     padding-left: 1%;
     padding-right: 1%;
     color : rgb(26, 240, 26);
-    background-color: #849F52;
 }
 
 #history {
@@ -116,7 +158,6 @@ body {
     font-size: 40px;
     text-align: center;
     font-family: monospace;
-    color: #2F2B21;
 }
 
 #keyboard {
@@ -126,7 +167,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
-    /*border-style: solid;*/
+    border-style: solid;
     border-width: 2px;
     padding-top: 5px;
     padding-right: 0.5%;
@@ -144,7 +185,7 @@ body {
     font-family: monospace;
     border-width: 0.5;
     font-weight: bold;
-    border-color: rgb(26, 240, 26);;
+    border-color: aliceblue;
     border-style: solid;
   }
 .numbers , .empty {
@@ -159,7 +200,7 @@ body {
 
 .numbers, .empty {
     color : rgb(26, 240, 26);
-    background-color: #746A5D;
+    background-color: black;
     font-size: large;
     font-weight: bold;
 }

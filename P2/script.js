@@ -16,7 +16,8 @@ const gui = {
     first : document.getElementById("first"),
     second : document.getElementById("second"),
     third : document.getElementById("third"),
-    fourth : document.getElementById("fourth")
+    fourth : document.getElementById("fourth"),
+    body : document.getElementById("cuerpo")
 }
 
 //-- Array que almacena números secretos
@@ -60,6 +61,8 @@ function success(number){
     }
     if (gui.first.innerHTML != "*" && gui.second.innerHTML != "*" && gui.third.innerHTML != "*" && gui.fourth.innerHTML != "*"){
         console.log("Has Ganado")
+        gui.body.style.backgroundImage = "url(explosion.jpg)"
+        gui.body.style.backgroundPosition = "center"
         crono.stop();
     }
 }
@@ -98,6 +101,9 @@ gui.reset.onclick = () => {
     gui.third.style.color = "red"
     gui.fourth.innerHTML = "*"
     gui.fourth.style.color = "red"
+
+    gui.body.style.backgroundImage = "url(TNT.png)"
+    gui.body.style.backgroundPositionY = "-450px"
 
     //-- Generamos números secretos y los almacenamos en un array
     for (let i = 0; i < 4; i++) {
