@@ -7,8 +7,6 @@ body {
 }
 
 #container {
-    /*width: 1000px; */
-    /*! float: center; */
     width: 100%;
     height: 100%;
     margin: 20px auto auto auto;
@@ -184,13 +182,12 @@ body {
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 500px) {
-    body {
-        background-color: black;
-    }
 
+   
     #calculator {
         width: 90%; /* Ocupa el ancho completo */
         margin: 10px auto; /* Centra la calculadora */
+        height: 450px;
     }
 
     #result {
@@ -219,7 +216,10 @@ body {
     }
     .code {
         width: 23%; /* Ancho proporcional */
-        height: auto; /* Altura automática */
+        height: 100%; /* Altura automática */
+        position:relative;
+        left:20px;
+        
 
     }
 

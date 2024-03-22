@@ -225,13 +225,10 @@ body {
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 500px) {
-    body {
-        background-color: black;
-    }
+
 
     #calculator {
         width: 90%; /* Ocupa el ancho completo */
-        margin: 10px auto; /* Centra la calculadora */
     }
 
     #result {
@@ -259,7 +256,7 @@ body {
         font-size: auto;
     }
     .code {
-        width: 23%; /* Ancho proporcional */
+        width: auto; /* Ancho proporcional */
         height: auto; /* Altura automática */
 
     }
