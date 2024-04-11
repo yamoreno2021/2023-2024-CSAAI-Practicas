@@ -44,15 +44,13 @@ let yo = 370;
 
 
 //-- Dibujar el proyectil
-//dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
-dibujarP(xop, yop, 50, 50); // Pintar el proyectil //Sin color
+dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+//dibujarP(xop, yop, 50, 50); // Pintar el proyectil //Sin color
 
 //-- Dibujbar el objetivo
 dibujarO(xo,yo); // Pintar el objetivo
 
-//-- Velocidad del proyectil
-let velpx = 5;
-let velpy = 1;
+
 
 //-- Escribir ángulo
 angle.onchange = () => {
@@ -67,18 +65,27 @@ velocity.onchange = () => {
       velocity_disp.innerHTML = velocity.value;
     }
 }
+//-- Velocidad inicial total
+var v0 = parseFloat(velocity.value); // Obtener la velocidad inicial del input
+
+//-- Ángulo de lanzamiento (en radianes)
+var theta = parseFloat(angle.value) * Math.PI / 180; // Convertir a radianes
+
+//-- Velocidad del proyectil
+let v0x = v0 * Math.cos(theta); // Velocidad inicial en x
+let v0y = v0 * Math.sin(theta); // Velocidad inicial en y
 
 //-- Función principal de actualización
 //-- Gravedad
-const g = 0.2; // Ajusta según sea necesario
+const g = 9.81; // Ajusta según sea necesario
 
 //-- Tiempo inicial
 let t = 0;
 
 function lanzar() {
     //-- Calcular la posición en función del tiempo
-    xp = xop + velpx * t;
-    yp = yop - (velpy * t - 0.5 * g * t ** 2);
+    xp = xop + v0x * t;
+    yp = yop - (v0y * t - 0.5 * g * t ** 2);
 
     //-- Incrementar el tiempo para el próximo cuadro
     t += 1;
@@ -119,16 +126,16 @@ function dibujarP(x,y,lx,ly,color) {
     ctx.beginPath();
     ctx.drawImage(bird, x,y,lx,ly);
     //-- Definir un rectángulo de dimensiones lx x ly,
-    ctx.rect(x, y, lx, ly);
+    //ctx.rect(x, y, lx, ly);
 
     //-- Color de relleno del rectángulo
-    ctx.fillStyle = color;
+    //ctx.fillStyle = color;
 
     //-- Mostrar el relleno
-    ctx.fill();
+   // ctx.fill();
 
     //-- Mostrar el trazo del rectángulo
-    ctx.stroke();
+    //ctx.stroke();
 
     ctx.closePath();
 }
