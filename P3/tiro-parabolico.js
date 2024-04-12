@@ -1,13 +1,15 @@
 //-- Elementos del DOM
 const canvas = document.getElementById("ctiro");
 
+
+
 //-- Acceder al angulo
 const angle = document.getElementById("angle");
 const angle_disp = document.getElementById("angle_disp");
 
 //-- Acceder a la velocidad
-const velocity = document.getElementById("velocity");
-const velocity_disp = document.getElementById("velocity_disp");
+var velocity = document.getElementById("velocity");
+var velocity_disp = document.getElementById("velocity_disp");
 
 //-- Acceder al botón de disparo
 const btnLanzar = document.getElementById("btnLanzar");
@@ -36,11 +38,23 @@ let yop = 340;
 let xp = xop;
 let yp = yop;
 
+//-- Cronometro
+var display = document.getElementById("crono")
+
+//-- Definir un objeto cronómetro
+const crono = new Crono(display);
+
+
+
+//-- Generar números aleatorios con un valor máximo
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 //-- Coordenadas iniciales del objetivo
 let xomin = 200;
 let xomax = 770;
-let xo = 500; //getRandomXO(xomin,xomax);
-let yo = 370;
+let xo = getRandomInt(430, 770); //getRandomXO(xomin,xomax);
+let yo = getRandomInt(30, 370);
 
 
 //-- Dibujar el proyectil
@@ -51,7 +65,7 @@ dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
 dibujarO(xo,yo); // Pintar el objetivo
 
 
-
+angle_disp.innerHTML = angle.value;
 //-- Escribir ángulo
 angle.onchange = () => {
     if (angle.value != "") {
@@ -59,14 +73,19 @@ angle.onchange = () => {
     }
 }
 
+velocity_disp.innerHTML = velocity.value;
+//-- Velocidad inicial total
+var v0 = parseFloat(velocity.value); // Obtener la velocidad inicial del input
+
 //-- Escribir velocidad
 velocity.onchange = () => {
     if (velocity.value != "") {
       velocity_disp.innerHTML = velocity.value;
+      v0 = parseFloat(velocity.value);
     }
+
 }
-//-- Velocidad inicial total
-var v0 = parseFloat(velocity.value); // Obtener la velocidad inicial del input
+
 
 //-- Ángulo de lanzamiento (en radianes)
 var theta = parseFloat(angle.value) * Math.PI / 180; // Convertir a radianes
@@ -107,10 +126,6 @@ function lanzar() {
     requestAnimationFrame(lanzar);
 }
 
-//-- Función de retrollamada del botón de disparo
-btnLanzar.onclick = () => {
-    lanzar();
-}
 
 
 function bound_sound() {
@@ -124,18 +139,18 @@ function dibujarP(x,y,lx,ly,color) {
 
     //-- Pintando el proyectil
     ctx.beginPath();
-    ctx.drawImage(bird, x,y,lx,ly);
+    //ctx.drawImage(bird, x,y,lx,ly);
     //-- Definir un rectángulo de dimensiones lx x ly,
-    //ctx.rect(x, y, lx, ly);
+    ctx.rect(x, y, lx, ly);
 
     //-- Color de relleno del rectángulo
-    //ctx.fillStyle = color;
+    ctx.fillStyle = color;
 
     //-- Mostrar el relleno
-   // ctx.fill();
+    ctx.fill();
 
     //-- Mostrar el trazo del rectángulo
-    //ctx.stroke();
+    ctx.stroke();
 
     ctx.closePath();
 }
@@ -145,7 +160,7 @@ function dibujarO(x,y) {
 
     //-- Pintando el objetivo
     ctx.beginPath();
-    ctx.drawImage(pig, x,y-30,50,50);
+    //ctx.drawImage(pig, x,y-30,50,50);
     //-- Dibujar un circulo: coordenadas x,y del centro
     //-- Radio, Angulo inicial y angulo final
     ctx.arc(x, y, 25, 0, 2 * Math.PI);
@@ -165,6 +180,9 @@ function dibujarO(x,y) {
 //-- Función de retrollamada del botón de disparo
 btnLanzar.onclick = () => {
     lanzar();
+    //-- Arranque del cronometro
+    console.log("Start!!");
+    crono.start();
 }
 
 //-- Función de retrollamada del botón de inicio
