@@ -21,8 +21,8 @@ const btnIniciar = document.getElementById("btnIniciar");
 //-- Crear los elementos de sonido
 const rebote_sound = new Audio('rebote.mp3');
 
-canvas.width = 800;
-canvas.height = 400;
+canvas.width = 1500;
+canvas.height = 750;
 
 //-- Obtener el contexto del canvas 2d
 const ctx = canvas.getContext("2d");
@@ -34,7 +34,7 @@ var pig = document.getElementById("pig");
 
 //-- Coordenadas iniciales del proyectil
 let xop = 5;
-let yop = 340;
+let yop = canvas.height - 60;
 let xp = xop;
 let yp = yop;
 
@@ -51,10 +51,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 //-- Coordenadas iniciales del objetivo
-let xomin = 200;
-let xomax = 770;
-let xo = getRandomInt(430, 770); //getRandomXO(xomin,xomax);
-let yo = getRandomInt(30, 370);
+let xo = getRandomInt(225, canvas.width - 25); //getRandomXO(xomin,xomax);
+let yo = getRandomInt(25, canvas.height - 25);
 
 
 //-- Dibujar el proyectil
@@ -64,39 +62,57 @@ dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
 //-- Dibujbar el objetivo
 dibujarO(xo,yo); // Pintar el objetivo
 
-
-angle_disp.innerHTML = angle.value;
-//-- Escribir ángulo
-angle.onchange = () => {
-    if (angle.value != "") {
-      angle_disp.innerHTML = angle.value;
-    }
-}
-
-velocity_disp.innerHTML = velocity.value;
-//-- Velocidad inicial total
-var v0 = parseFloat(velocity.value); // Obtener la velocidad inicial del input
-
-//-- Escribir velocidad
-velocity.onchange = () => {
-    if (velocity.value != "") {
-      velocity_disp.innerHTML = velocity.value;
-      v0 = parseFloat(velocity.value);
-    }
-
-}
-
-
+// --------------------------------- Ángulo Proyectil ----------------------------------------
+// ------------- Inicializacion --------------
 //-- Ángulo de lanzamiento (en radianes)
 var theta = parseFloat(angle.value) * Math.PI / 180; // Convertir a radianes
+
+//-- Escritura ángulo inicial
+angle_disp.innerHTML = angle.value;
+
+// ------------- Actualizacion del ángulo -------------
+angle.onchange = () => {
+    if (angle.value != "") {
+        angle_disp.innerHTML = angle.value;
+
+        theta = parseFloat(angle.value) * Math.PI / 180;
+        //-- Velocidad del proyectil
+        v0x = v0 * Math.cos(theta); // Velocidad inicial en x
+        v0y = v0 * Math.sin(theta); // Velocidad inicial en y
+    }
+}
+
+
+
+// --------------------------------- Velocidad Proyectil ----------------------------------------
+// ------------- Inicializacion --------------
+//-- Velocidad inicial total
+var v0 = parseFloat(velocity.value); // Obtener la velocidad inicial del input
 
 //-- Velocidad del proyectil
 let v0x = v0 * Math.cos(theta); // Velocidad inicial en x
 let v0y = v0 * Math.sin(theta); // Velocidad inicial en y
 
+//-- Escritura velocidad inicial
+velocity_disp.innerHTML = velocity.value;
+
+// ------------- Actualizacion de la velocidad -------------
+velocity.onchange = () => {
+    if (velocity.value != "") {
+        velocity_disp.innerHTML = velocity.value;
+
+        v0 = parseFloat(velocity.value);
+        //-- Velocidad del proyectil
+        v0x = v0 * Math.cos(theta); // Velocidad inicial en x
+        v0y = v0 * Math.sin(theta); // Velocidad inicial en y
+
+    }
+}
+
+
 //-- Función principal de actualización
 //-- Gravedad
-const g = 9.81; // Ajusta según sea necesario
+const g = 9.81;
 
 //-- Tiempo inicial
 let t = 0;
@@ -106,8 +122,9 @@ function lanzar() {
     xp = xop + v0x * t;
     yp = yop - (v0y * t - 0.5 * g * t ** 2);
 
+
     //-- Incrementar el tiempo para el próximo cuadro
-    t += 1;
+    t += 0.1;
 
     //-- Borrar el canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -116,8 +133,19 @@ function lanzar() {
     dibujarP(xp, yp, 50, 50, "red"); // Pintar el proyectil
     dibujarO(xo, yo); // Pintar el objetivo
 
+    //-- Condición de rebote en extremos verticales del canvas
+    //if (xp < 0 || xp > (canvas.width - 55) ) {
+    if (canvas.width - xp < 50 || canvas.height  - yp < 50 || canvas.height  - yp > canvas.height) {
+        dibujarP(xp, yp, 50, 50, "yellow"); // Pintar el proyectil
+        crono.stop();
+        // Si el proyectil alcanza el objetivo, detener la animación
+        return;
+    }
+
     //-- Verificar colisión
-    if (xp >= xo && xp <= xo + 50 && yp >= yo && yp <= yo + 50) {
+    if (xp - xo < 25 && xp - xo > -75 && yp - yo < 25 && yp - yo > -75) {
+        dibujarP(xp, yp, 50, 50, "yellow"); // Pintar el proyectil
+        crono.stop();
         // Si el proyectil alcanza el objetivo, detener la animación
         return;
     }
@@ -138,21 +166,21 @@ function bound_sound() {
 function dibujarP(x,y,lx,ly,color) {
 
     //-- Pintando el proyectil
-    ctx.beginPath();
-    //ctx.drawImage(bird, x,y,lx,ly);
+    //ctx.beginPath();
+    ctx.drawImage(bird, x,y,lx,ly);
     //-- Definir un rectángulo de dimensiones lx x ly,
-    ctx.rect(x, y, lx, ly);
+    //ctx.rect(x, y, lx, ly);
 
     //-- Color de relleno del rectángulo
-    ctx.fillStyle = color;
+    //ctx.fillStyle = color;
 
     //-- Mostrar el relleno
-    ctx.fill();
+    //ctx.fill();
 
     //-- Mostrar el trazo del rectángulo
-    ctx.stroke();
+    //ctx.stroke();
 
-    ctx.closePath();
+    //ctx.closePath();
 }
 
 //-- función para pintar el objetivo
@@ -193,6 +221,6 @@ btnIniciar.onclick = () => {
 
     //-- Dibujar el proyectil
     dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
-
+    crono.reset();
 
 }
