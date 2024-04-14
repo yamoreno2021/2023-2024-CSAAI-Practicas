@@ -196,6 +196,25 @@ function lanzar() {
                 crono.reset();
             }
         });
+        canvas.addEventListener('touchstart', function(event) {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+
+            // Verificar si las coordenadas del clic están dentro de la región de la imagen
+            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen + imagenDimension) {
+
+                // El clic ocurrió dentro de la imagen
+                console.log("Botón de reinicio clicado");
+                //-- Reinicio
+                location.reload();
+
+                //-- Dibujar el proyectil
+                dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+                crono.reset();
+            }
+        });
 
         //-------- Mensaje Derrota ----------
         ctx.font = "50px Arial";
@@ -270,6 +289,25 @@ function lanzar() {
         ctx.closePath()
         // Asignar un controlador de eventos de clic al canvas
         canvas.addEventListener("click", function (event) {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+
+            // Verificar si las coordenadas del clic están dentro de la región de la imagen
+            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen + imagenDimension) {
+
+                // El clic ocurrió dentro de la imagen
+                console.log("Botón de reinicio clicado");
+                //-- Reinicio
+                location.reload();
+
+                //-- Dibujar el proyectil
+                dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+                crono.reset();
+            }
+        });
+        canvas.addEventListener('touchstart', function(event) {
             const rect = canvas.getBoundingClientRect();
             const clickX = event.clientX - rect.left;
             const clickY = event.clientY - rect.top;
