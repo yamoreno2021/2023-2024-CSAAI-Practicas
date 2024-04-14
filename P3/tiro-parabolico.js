@@ -198,12 +198,11 @@ function lanzar() {
         });
         canvas.addEventListener('touchstart', function(event) {
             const rect = canvas.getBoundingClientRect();
-            const clickX = event.clientX - rect.left;
-            const clickY = event.clientY - rect.top;
-
+            const touchX = event.touches[0].clientX - rect.left;
+            const touchY = event.touches[0].clientY - rect.top;
 
             // Verificar si las coordenadas del clic están dentro de la región de la imagen
-            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen + imagenDimension) {
+            if (touchX > xImagen && touchX < xImagen + imagenDimension && touchY > yImagen && touchY < yImagen + imagenDimension) {
 
                 // El clic ocurrió dentro de la imagen
                 console.log("Botón de reinicio clicado");
@@ -309,12 +308,11 @@ function lanzar() {
         });
         canvas.addEventListener('touchstart', function(event) {
             const rect = canvas.getBoundingClientRect();
-            const clickX = event.clientX - rect.left;
-            const clickY = event.clientY - rect.top;
-
+            const touchX = event.touches[0].clientX - rect.left;
+            const touchY = event.touches[0].clientY - rect.top;
 
             // Verificar si las coordenadas del clic están dentro de la región de la imagen
-            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen + imagenDimension) {
+            if (touchX > xImagen && touchX < xImagen + imagenDimension && touchY > yImagen && touchY < yImagen + imagenDimension) {
 
                 // El clic ocurrió dentro de la imagen
                 console.log("Botón de reinicio clicado");
