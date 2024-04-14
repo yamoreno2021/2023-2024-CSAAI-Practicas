@@ -25,11 +25,11 @@ meterla en el canvas */
 }
 
 /* Estilos para dispositivos móviles */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
 #ctiro {
   width: 100%; /* Ocupa el ancho completo */
   margin: 10px auto; /* Centra la calculadora */
-  height: 450px;
+  height: auto;
   background-size: cover;
 }
 #pajaro {
