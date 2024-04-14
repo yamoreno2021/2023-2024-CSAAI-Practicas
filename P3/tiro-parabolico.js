@@ -276,7 +276,7 @@ function lanzar() {
 
 
             // Verificar si las coordenadas del clic están dentro de la región de la imagen
-            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen+ imagenDimension) {
+            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen + imagenDimension) {
 
                 // El clic ocurrió dentro de la imagen
                 console.log("Botón de reinicio clicado");

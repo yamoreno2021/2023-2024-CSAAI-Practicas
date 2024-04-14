@@ -23,3 +23,27 @@ meterla en el canvas */
 #restart {
   display: none;
 }
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 500px) {
+#ctiro {
+  width: 100%; /* Ocupa el ancho completo */
+  margin: 10px auto; /* Centra la calculadora */
+  height: 450px;
+  background-size: cover;
+}
+#pajaro {
+  display: none;
+}  
+#pig {
+  display: none;
+}  
+#restart {
+  display: none;
+}
+#logo{
+  width: 100%; /* Ocupa el ancho completo */
+  margin: 10px auto; /* Centra la calculadora */
+  height: auto;
+}
+}
