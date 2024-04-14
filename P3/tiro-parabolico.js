@@ -16,10 +16,6 @@ const btnLanzar = document.getElementById("btnLanzar");
 //-- Acceder al botón de iniciar
 const btnIniciar = document.getElementById("btnIniciar");
 
-//-- Sonidos
-//-- Crear los elementos de sonido
-const rebote_sound = new Audio('rebote.mp3');
-
 canvas.width = 1500;
 canvas.height = 750;
 
@@ -40,7 +36,7 @@ let xp = xop;
 let yp = yop;
 
 //-- Cronometro
-var display = document.getElementById("crono")
+var display = document.getElementById("crono");
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(display);
@@ -84,7 +80,7 @@ angle.onchange = () => {
         v0x = v0 * Math.cos(theta); // Velocidad inicial en x
         v0y = v0 * Math.sin(theta); // Velocidad inicial en y
     }
-}
+};
 
 // --------------------------------- Velocidad Proyectil ----------------------------------------
 // ------------- Inicializacion --------------
@@ -109,7 +105,7 @@ velocity.onchange = () => {
         v0y = v0 * Math.sin(theta); // Velocidad inicial en y
 
     }
-}
+};
 
 // ------------------------------------ Lanzamiento ------------------------------------
 //-- Función principal de actualización
@@ -161,7 +157,7 @@ function lanzar() {
         ctx.fill();
 
         //-- Dibujar el trazo
-        ctx.stroke()
+        ctx.stroke();
 
         // Imagen Restart
         var imagenDimension = 100;
@@ -175,7 +171,7 @@ function lanzar() {
         var yImagen2 = (canvas.height - imagenDimension2) / 2 - 150;
         ctx.drawImage(pig, xImagen2, yImagen2, imagenDimension2, imagenDimension2);
 
-        ctx.closePath()
+        ctx.closePath();
         // Asignar un controlador de eventos de clic al canvas
         canvas.addEventListener("click", function (event) {
             const rect = canvas.getBoundingClientRect();
@@ -192,11 +188,11 @@ function lanzar() {
                 location.reload();
 
                 //-- Dibujar el proyectil
-                dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+                dibujarP(xop, yop, 50, 50); // Pintar el proyectil
                 crono.reset();
             }
         });
-        canvas.addEventListener('touchstart', function(event) {
+        canvas.addEventListener('touchstart', function (event) {
             const rect = canvas.getBoundingClientRect();
             const touchX = event.touches[0].clientX - rect.left;
             const touchY = event.touches[0].clientY - rect.top;
@@ -210,7 +206,7 @@ function lanzar() {
                 location.reload();
 
                 //-- Dibujar el proyectil
-                dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+                dibujarP(xop, yop, 50, 50); // Pintar el proyectil
                 crono.reset();
             }
         });
@@ -225,11 +221,11 @@ function lanzar() {
         var textoAlto = 45;
 
         //-- Calcular las coordenadas x e y para centrar el texto
-        var x = (canvas.width - textoAncho) / 2; // Centrado horizontalmente
-        var y = (canvas.height + textoAlto) / 2; // Centrado verticalmente
+        var xTexto = (canvas.width - textoAncho) / 2; // Centrado horizontalmente
+        var yTexto = (canvas.height + textoAlto) / 2; // Centrado verticalmente
 
         //-- Dibujar el texto centrado
-        ctx.fillText(texto, x, y);
+        ctx.fillText(texto, xTexto, yTexto);
 
         //-- Tiempo
         var texto2 = display.innerHTML;
@@ -238,11 +234,11 @@ function lanzar() {
         var textoAncho2 = ctx.measureText(texto2).width;
 
         //-- Calcular las coordenadas x e y para centrar el texto
-        var x2 = (canvas.width - textoAncho2) / 2; // Centrado horizontalmente
-        var y2 = (canvas.height + textoAlto) / 2; // Centrado verticalmente
+        var xTexto2 = (canvas.width - textoAncho2) / 2; // Centrado horizontalmente
+        var yTexto2 = (canvas.height + textoAlto) / 2; // Centrado verticalmente
 
         //-- Dibujar el texto centrado
-        ctx.fillText(texto2, x2, y2 + 100);
+        ctx.fillText(texto2, xTexto2, yTexto2 + 100);
         // Si el proyectil alcanza el objetivo, detener la animación
         return;
     }
@@ -252,16 +248,16 @@ function lanzar() {
         dibujarP(xp, yp, 50, 50); // Pintar el proyectil
         crono.stop();
 
-        var cuadradoAncho = 500;
-        var cuadradoAlto = 75;
+        var cuadradoAncho2 = 500;
+        var cuadradoAlto2 = 75;
 
         //-- Calcular las coordenadas x e y para centrar el cuadrado
-        var x = (canvas.width - cuadradoAncho) / 2; // Centrado horizontalmente
-        var y = (canvas.height - cuadradoAlto) / 2; // Centrado verticalmente
+        var x2 = (canvas.width - cuadradoAncho2) / 2; // Centrado horizontalmente
+        var y2 = (canvas.height - cuadradoAlto2) / 2; // Centrado verticalmente
 
         ctx.beginPath();
 
-        ctx.rect(x, 0, cuadradoAncho, canvas.height);
+        ctx.rect(x2, 0, cuadradoAncho2, canvas.height);
 
         //-- Dibujar
         ctx.fillStyle = 'black';
@@ -273,19 +269,19 @@ function lanzar() {
         ctx.fill();
 
         //-- Dibujar el trazo
-        ctx.stroke()
+        ctx.stroke();
 
-        var imagenDimension = 100;
-        var xImagen = (canvas.width - imagenDimension) / 2;
-        var yImagen = (canvas.height - imagenDimension) / 2 + 200;
-        ctx.drawImage(restart, xImagen, yImagen, imagenDimension, imagenDimension);
+        var imagenDimension3 = 100;
+        var xImagen3 = (canvas.width - imagenDimension3) / 2;
+        var yImagen3 = (canvas.height - imagenDimension3) / 2 + 200;
+        ctx.drawImage(restart, xImagen3, yImagen3, imagenDimension3, imagenDimension3);
 
 
-        var imagenDimension2 = 200;
-        var xImagen2 = (canvas.width - imagenDimension2) / 2;
-        var yImagen2 = (canvas.height - imagenDimension2) / 2 - 150;
-        ctx.drawImage(bird, xImagen2, yImagen2, imagenDimension2, imagenDimension2);
-        ctx.closePath()
+        var imagenDimension4 = 200;
+        var xImagen4 = (canvas.width - imagenDimension4) / 2;
+        var yImagen4 = (canvas.height - imagenDimension4) / 2 - 150;
+        ctx.drawImage(bird, xImagen4, yImagen4, imagenDimension4, imagenDimension4);
+        ctx.closePath();
         // Asignar un controlador de eventos de clic al canvas
         canvas.addEventListener("click", function (event) {
             const rect = canvas.getBoundingClientRect();
@@ -294,7 +290,7 @@ function lanzar() {
 
 
             // Verificar si las coordenadas del clic están dentro de la región de la imagen
-            if (clickX > xImagen && clickX < xImagen + imagenDimension && clickY > yImagen && clickY < yImagen + imagenDimension) {
+            if (clickX > xImagen3 && clickX < xImagen3 + imagenDimension3 && clickY > yImagen3 && clickY < yImagen3 + imagenDimension3) {
 
                 // El clic ocurrió dentro de la imagen
                 console.log("Botón de reinicio clicado");
@@ -302,17 +298,17 @@ function lanzar() {
                 location.reload();
 
                 //-- Dibujar el proyectil
-                dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+                dibujarP(xop, yop, 50, 50); // Pintar el proyectil
                 crono.reset();
             }
         });
-        canvas.addEventListener('touchstart', function(event) {
+        canvas.addEventListener('touchstart', function (event) {
             const rect = canvas.getBoundingClientRect();
             const touchX = event.touches[0].clientX - rect.left;
             const touchY = event.touches[0].clientY - rect.top;
 
             // Verificar si las coordenadas del clic están dentro de la región de la imagen
-            if (touchX > xImagen && touchX < xImagen + imagenDimension && touchY > yImagen && touchY < yImagen + imagenDimension) {
+            if (touchX > xImagen3 && touchX < xImagen3 + imagenDimension3 && touchY > yImagen3 && touchY < yImagen3 + imagenDimension3) {
 
                 // El clic ocurrió dentro de la imagen
                 console.log("Botón de reinicio clicado");
@@ -320,7 +316,7 @@ function lanzar() {
                 location.reload();
 
                 //-- Dibujar el proyectil
-                dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+                dibujarP(xop, yop, 50, 50); // Pintar el proyectil
                 crono.reset();
             }
         });
@@ -328,31 +324,31 @@ function lanzar() {
         //-------- Mensaje Victoria ----------
         ctx.font = "50px Arial";
         ctx.fillStyle = 'white';
-        var texto = "You Win!";
+        var texto3 = "You Win!";
 
         //-- Calcular la anchura del texto
-        var textoAncho = ctx.measureText(texto).width;
-        var textoAlto = 45;
+        var textoAncho3 = ctx.measureText(texto3).width;
+        var textoAlto3 = 45;
 
         //-- Calcular las coordenadas x e y para centrar el texto
-        var x = (canvas.width - textoAncho) / 2; // Centrado horizontalmente
-        var y = (canvas.height + textoAlto) / 2; // Centrado verticalmente
+        var xTexto3 = (canvas.width - textoAncho3) / 2; // Centrado horizontalmente
+        var yTexto3 = (canvas.height + textoAlto3) / 2; // Centrado verticalmente
 
         //-- Dibujar el texto centrado
-        ctx.fillText(texto, x, y);
+        ctx.fillText(texto3, xTexto3, yTexto3);
 
         //---------- Tiempo ------------
-        var texto2 = display.innerHTML;
+        var texto4 = display.innerHTML;
 
         //-- Calcular la anchura del texto
-        var textoAncho2 = ctx.measureText(texto2).width;
+        var textoAncho4 = ctx.measureText(texto4).width;
 
         //-- Calcular las coordenadas x e y para centrar el texto
-        var x2 = (canvas.width - textoAncho2) / 2; // Centrado horizontalmente
-        var y2 = (canvas.height + textoAlto) / 2; // Centrado verticalmente
+        var xTexto4 = (canvas.width - textoAncho4) / 2; // Centrado horizontalmente
+        var yTexto4 = (canvas.height + textoAlto3) / 2; // Centrado verticalmente
 
         //-- Dibujar el texto centrado
-        ctx.fillText(texto2, x2, y2 + 100);
+        ctx.fillText(texto4, xTexto4, yTexto4 + 100);
         // Si el proyectil alcanza el objetivo, detener la animación
 
         // Si el proyectil alcanza el objetivo, detener la animación
@@ -363,13 +359,6 @@ function lanzar() {
     requestAnimationFrame(lanzar);
 }
 
-
-
-function bound_sound() {
-
-    rebote_sound.currentTime = 0;
-    rebote_sound.play();
-}
 
 //-- función para pintar el proyectil
 function dibujarP(x, y, lx, ly) {
@@ -395,7 +384,7 @@ btnLanzar.onclick = () => {
     //-- Arranque del cronometro
     console.log("Start!!");
     crono.start();
-}
+};
 
 //-- Función de retrollamada del botón de inicio
 btnIniciar.onclick = () => {
@@ -404,10 +393,10 @@ btnIniciar.onclick = () => {
     location.reload();
 
     //-- Dibujar el proyectil
-    dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+    dibujarP(xop, yop, 50, 50); // Pintar el proyectil
     crono.reset();
 
-}
+};
 
 restart.onclick = () => {
     console.log("Botón de reinicio clicado");
@@ -415,6 +404,6 @@ restart.onclick = () => {
     location.reload();
 
     //-- Dibujar el proyectil
-    dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+    dibujarP(xop, yop, 50, 50); // Pintar el proyectil
     crono.reset();
 };
