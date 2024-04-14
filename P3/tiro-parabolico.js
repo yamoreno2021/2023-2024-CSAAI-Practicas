@@ -132,7 +132,7 @@ function lanzar() {
     dibujarO(xo, yo); // Pintar el objetivo
 
     //-------------------------------- Fallar tiro --------------------------------
-    if (canvas.width - xp < 50 || canvas.height - yp < 50 || canvas.height - yp > canvas.height) {
+    if (canvas.width - xp < 50 || canvas.height - yp < 50) {
         dibujarP(xp, yp, 50, 50); // Pintar el proyectil
         crono.stop();
 
