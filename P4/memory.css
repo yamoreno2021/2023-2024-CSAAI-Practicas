@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: Montserrat;
     src: url(./Montserrat-Regular.ttf);
@@ -8,13 +9,75 @@ html {
     height: 100%;
     /* background: linear-gradient(325deg,  #6f00fc 0%,#fc7900 50%,#fcc700 100%); */
     font-family: Montserrat;
+    background-image: url(MemoryGames.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-color: #57AEA6;
 }
+.menu{
+    display: block;
+}
+.Instrucciones
+{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 50px auto; /* Centrado horizontal y margen superior e inferior */
+    display: block; /* Para que el botón se muestre como un bloque y ocupe todo el ancho disponible */
+}
+
+
+#texto {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 25%; /* Ancho del elemento */
+    margin: 50px auto; /* Centrado horizontal y margen superior e inferior */
+    margin-top: -20px;
+    display: none;
+}
+#eleccion {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 300px; /* Ancho del elemento */
+    margin: 50px auto; /* Centrado horizontal y margen superior e inferior */
+    margin-top: -20px;
+    font-size: 30px;
+}
+.x2,
+.x4,
+.x6 {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px; /* Centrado horizontal y margen superior e inferior */
+    
+}
+.butons{
+    display: flex;
+    justify-content: center;
+}
+
+
 
 .game {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: none;
 }
 
 .controls {
@@ -39,8 +102,8 @@ button {
 }
 
 .display {
-    color: #282A3A;
-    font-size: 14pt;
+    color: grey;
+    font-size: 20pt;
 }
 
 .grid-container {
@@ -73,8 +136,8 @@ button {
 
 .card {
     position: relative;
-    width: 100px;
-    height: 146px;
+    width: 100px;     /* Original: 600 */
+    height: 146.5px;  /* 879 */
     cursor: pointer;
 }
 

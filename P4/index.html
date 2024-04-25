@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="Calavera.png" sizes="64x64">
+        <title> Memory </title>
+
+        <link rel="stylesheet" href="memory.css" />
+        <script src="memory-game.js" defer></script>
+    </head>
+    <body id="cuerpo">
+        <div class = "menu" id = "menu">
+            <button class="Instrucciones">Instrucciones</button>
+            <p id = "texto">El objetivo es lograr memorizar la ubicación de las diferentes 
+                cartas con el fin de voltear sucesivamente las 2 cartas idénticas que formen pareja. 
+                La partida se terminará cuando estén todas las parejas encontradas. Podrás jugar en varios tamaños de tablero: 2x2, 4x4 y 6x6</p>
+
+            <p id="eleccion">Elige Dificultad</p>
+            <div class ="butons">
+            <button class="x2" id="x2">2x2</button>
+            <button class="x4">4x4</button>
+            <button class="x6">6x6</button>
+            </div>
+        </div>
+        <div class="game" id="game">
+            <div class="controles">
+                <button class="start">Comenzar</button>
+                <button class="restart">Reiniciar</button>
+                <button class="inicio">Inicio</button>
+                <div class="display">
+                    <div class="movimientos">0 movimientos</div>
+                    <div class="timer">tiempo: 0 sec</div>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="tablero" grid-dimension="6"></div>
+                <div class="win">¡Has Ganado!</div>
+            </div>
+        </div>
+    </body>
+</html>
