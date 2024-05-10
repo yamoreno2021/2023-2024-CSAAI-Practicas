@@ -12,7 +12,6 @@ var selected1 = document.querySelectorAll('.selected1');
 var selected2 = document.querySelectorAll('.selected2');
 var selected3 = document.querySelectorAll('.selected3');
 var selected4 = document.querySelectorAll('.selected4');
-document.getElementsByClassName
 
 // Numero de nodos 
 const range = document.getElementById("range");
@@ -126,7 +125,7 @@ range.oninput = () => {
     selected4[0].style.display = ("none");
     selected4[1].style.display = ("none");
   }
-}
+};
 
 range.onchange = () => {
   nodes.innerText = `${range.value} nodos`;
@@ -182,7 +181,7 @@ range.onchange = () => {
     selected4[0].style.display = ("none");
     selected4[1].style.display = ("none");
   }
-}
+};
 
 // Número de conexiones
 const rangeConnect = document.getElementById("rangeConnect");
@@ -194,12 +193,12 @@ rangeConnect.oninput = () => {
   conexions.innerText = `${rangeConnect.value} conexiones`;
   nodeConnect = rangeConnect.value;
 
-}
+};
 
 rangeConnect.onchange = () => {
   conexions.innerText = `${rangeConnect.value} conexiones`;
   nodeConnect = rangeConnect.value;
-}
+};
 
 // Determinar id del nodo de origen y el de destino
 let idNodoOrigen = 0;
@@ -210,10 +209,10 @@ idNodoOrigen = selectEntry.value;
 idNodoDestino = selectExit.value;
 selectEntry.onchange = () => {
   idNodoOrigen = selectEntry.value;
-}
+};
 selectExit.onchange = () => {
   idNodoDestino = selectExit.value;
-}
+};
 
 let nodoOrigen = 0, nodoDestino = 0;
 let rutaMinimaConRetardos;
@@ -313,7 +312,7 @@ class Nodo {
       pos += 1;
     }
 
-    return { pos: npos, id: cnode, distance: distn, }
+    return { pos: npos, id: cnode, distance: distn, };
 
   }
 
@@ -489,7 +488,7 @@ btnCNet.onclick = () => {
   const time = document.querySelector('.time');
   time.innerText = `Tiempo total:` + `\n` + `0 sec`;
 
-}
+};
 
 // Función de callback para generar la ruta mínima
 btnMinPath.onclick = () => {
@@ -583,4 +582,5 @@ btnMinPath.onclick = () => {
     console.log(tiempoTotal);
 
   }
-}
+};
+
