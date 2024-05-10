@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Simulation</title>
+    <link rel="shortcut icon" href="icono.png" sizes="64x64">
+
+    <link rel="stylesheet" href="net.css">
+
+    <script src="net-dijkstra.js" defer></script>
+    <script src="net.js" defer></script>
+
+</head>
+
+<body>
+    <div class="controls">
+        <button id="btnCNet">Generar Red</button>
+        <button id="btnMinPath">Calcular ruta</button>
+        <div class="display">
+            <input type="range" id="range" min="2" max="5" value="5" step="1">
+            <div class="nodes">0 nodos</div>
+            <input type="range" id="rangeConnect" min="1" max="4" value="2" step="1">
+            <div class="connexions">0 conexiones</div>
+
+        </div>
+        <div class="select">
+            <div>Origen</div>
+            <select name="entry" id="selectEntry">
+                <option value=0 class="selected0" selected>Node 0</option>
+                <option value=1 class="selected1">Node 1</option>
+                <option value=2 class="selected2">Node 2</option>
+                <option value=3 class="selected3">Node 3</option>
+                <option value=4 class="selected4">Node 4</option>
+            </select>
+            <div>Destino</div>
+            <select name="exit" id="selectExit">
+                <option value=0 class="selected0" selected>Node 0</option>
+                <option value=1 class="selected1">Node 1</option>
+                <option value=2 class="selected2">Node 2</option>
+                <option value=3 class="selected3">Node 3</option>
+                <option value=4 class="selected4">Node 4</option>
+            </select>
+            <div class="message"></div>
+        </div>
+    </div>
+
+    <div class="red">
+        <canvas id="networkCanvas" width="800" height="500"></canvas>
+        <div class="rutaEscrita">
+            <div id="textoRuta"><strong><u>Ruta Seguida</u></strong></div>
+            <div class="ruta"></div>
+            <div class="time">Tiempo total:<br>0 sec</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
